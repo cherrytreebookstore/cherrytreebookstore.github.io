@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CherryTree Bookstore</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="bg-container">
+        <img id="bg-layer-1" src="bg-home.jpg" class="zoom-bg active">
+        <img id="bg-layer-2" src="bg-home.jpg" class="zoom-bg"> <div class="bg-overlay"></div>
+    </div>
+    <nav class="navbar">
+    <a href="#home" class="logo">
+        <img src="logo.png" alt="CherryTree Logo">
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#home">Αρχική</a></li>
+        <li><a href="#about">Η Φιλοσοφία</a></li>
+        <li><a href="#gallery">Εικόνες</a></li>
+        <li><a href="#location">Τοποθεσία</a></li>
+    </ul>
+</nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>CherryTree <span class="highlight">Bookstore</span></h1>
+            <p>
+    Βιβλία, Τεχνολογία & Δώρα.<br>
+    Ένας κόσμος γνώσης και αισθητικής για κάθε ηλικία.
+</p>
+            <a href="#location" class="btn">Επισκεφθείτε μας</a>
+        </div>
+        </header>
+
+    <section id="about" class="container section">
+        <div class="card glass">
+            <h2>Ένας κόσμος από χαρτί</h2>
+            <p style="font-size: 1.4rem; margin: 1.5rem auto; max-width: 800px;">
+                Στο CherryTree πιστεύουμε ότι κάθε βιβλίο είναι ένα ταξίδι. 
+                Από τις πιο πρόσφατες κυκλοφορίες μέχρι σπάνιες κλασικές εκδόσεις, 
+                στα ράφια μας θα βρείτε ιστορίες που περιμένουν να διαβαστούν.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-book"></i>
+                    <h3>Ελληνική Λογοτεχνία</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-globe-europe"></i>
+                    <h3>Ξένη Πεζογραφία</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-atom"></i>
+                    <h3>Επιστήμες & Δοκίμια</h3>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-palette"></i>
+                    <h3>Τέχνες & Λευκώματα</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="container section align-right">
+        <div class="card glass">
+            <h2>Ματιές στον χώρο μας</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="inside.jpeg" alt="CherryTree"></div>
+                <div class="gallery-item"><img src="outside.jpeg" alt="CherryTree"></div>
+                <div class="gallery-item"><img src="outside2.jpeg" alt="CherryTree"></div>
+                <div class="gallery-item"><img src="outside3.jpg" alt="CherryTree"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="container section">
+        <div class="row">
+            <div class="info-col glass" style="text-align: left;">
+                <h2>Βρείτε μας</h2>
+                <p>Σας περιμένουμε στα Λαγκαδίκια, σε ένα νεο στολισμένο κτίριο γεμάτο βιβλία.</p>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Λαγκαδίκια, Θεσσαλονίκη, ΤΚ 570 20</li>
+                    <li><i class="fas fa-phone"></i> 2393 091366</li>
+                    <li><i class="fas fa-envelope"></i> cherrytreebookstoreorders@gmail.com</li>
+                    <li><i class="far fa-clock"></i> 9:00-14:00 (Πρωί) - 17:00-21:00 (Απόγευμα) Τρίτη - Πέμπτη - Παρασκευή: 17:00-21:00 Δευτέρα - Σάββατο: 9:00-14:00 Κυριακή: Κλειστά</li>
+                </ul>
+            </div>
+            
+            <div class="map-col glass">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.159351430162!2d23.243468976429654!3d40.63550004229466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a8510066a49287%3A0x9c00e3409ba17ea4!2sCherry%20Tree!5e1!3m2!1sel!2sgr!4v1767098706146!5m2!1sel!2sgr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 CherryTree Bookstore. Created with <i class="fas fa-heart"></i> by CodingElevation.</p>
+    </footer>
+
+    <script>
+        // Επιλέγουμε και τα δύο layers εικόνων
+        const bg1 = document.getElementById('bg-layer-1');
+        const bg2 = document.getElementById('bg-layer-2');
+        const sections = document.querySelectorAll('section, header');
+
+        // Ποιο layer είναι τώρα ενεργό; (Ξεκινάμε με το 1)
+        let activeLayer = 1;
+
+        // ΛΕΞΙΚΟ ΕΙΚΟΝΩΝ (Χωρίς το Events)
+        const backgrounds = {
+            'home': 'inside.jpeg',
+            'about': 'outside.jpeg',
+            'location': 'outside.jpeg'
+        };
+
+        // 1. ΛΕΙΤΟΥΡΓΙΑ ZOOM (Εφαρμόζεται και στις δύο εικόνες ταυτόχρονα)
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let scaleValue = 1 + (scrollTop / 2500);
+            
+            bg1.style.transform = `scale(${scaleValue})`;
+            bg2.style.transform = `scale(${scaleValue})`;
+        });
+
+        // 2. ΛΕΙΤΟΥΡΓΙΑ CROSS-FADE ΑΛΛΑΓΗΣ ΕΙΚΟΝΑΣ
+        const observerOptions = {
+            root: null,
+            threshold: 0.3,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    const newImage = backgrounds[sectionId];
+
+                    // Βρες την τρέχουσα ενεργή εικόνα
+                    const currentImg = activeLayer === 1 ? bg1 : bg2;
+                    
+                    // Αν η νέα εικόνα είναι διαφορετική από αυτή που βλέπουμε τώρα
+                    if (newImage && !currentImg.src.includes(newImage)) {
+                        swapImages(newImage);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        function swapImages(newImageSrc) {
+            // Βρίσκουμε ποια εικόνα είναι ενεργή και ποια ανενεργή
+            const activeImg = activeLayer === 1 ? bg1 : bg2;
+            const nextImg = activeLayer === 1 ? bg2 : bg1;
+
+            // 1. Φορτώνουμε τη νέα εικόνα στο "πίσω" (ανενεργό) layer
+            nextImg.src = newImageSrc;
+
+            // 2. Μόλις φορτώσει η νέα εικόνα, κάνουμε την αλλαγή
+            nextImg.onload = () => {
+                // Εμφανίζουμε το νέο layer
+                nextImg.classList.add('active');
+                // Κρύβουμε το παλιό layer
+                activeImg.classList.remove('active');
+                
+                // Αλλάζουμε τον δείκτη για την επόμενη φορά
+                activeLayer = activeLayer === 1 ? 2 : 1;
+            };
+        }
+
+        /* --- Κώδικας για το Χιόνι --- */
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        
+        // Διαλέγουμε τυχαία αν θα είναι αστεράκι ή νιφάδα
+        snowflake.innerHTML = Math.random() > 0.5 ? '❄' : '❅';
+        
+        // Τυχαία θέση οριζόντια (από 0 έως 100 της οθόνης)
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        
+        // Τυχαίο μέγεθος (από 10px έως 25px)
+        const size = Math.random() * 15 + 10; 
+        snowflake.style.fontSize = size + 'px';
+        
+        // Τυχαία ταχύτητα πτώσης (από 3 έως 8 δευτερόλεπτα)
+        const duration = Math.random() * 5 + 3;
+        snowflake.style.animationDuration = duration + 's';
+        
+        // Τυχαία διαφάνεια (για βάθος)
+        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
+
+        document.body.appendChild(snowflake);
+
+        // Διαγράφουμε τη νιφάδα μόλις τελειώσει η πτώση για να μην βαρύνει το site
+        setTimeout(() => {
+            snowflake.remove();
+        }, duration * 1000);
+    }
+
+    // Δημιουργία νιφάδας κάθε 100ms (όσο πιο μικρό το νούμερο, τόσο πιο πυκνό το χιόνι)
+    setInterval(createSnowflake, 100);
+    </script>
+</body>
+</html>

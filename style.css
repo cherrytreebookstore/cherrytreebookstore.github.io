@@ -1,0 +1,506 @@
+/* --- Ρυθμίσεις Μεταβλητών & Reset --- */
+:root {
+    --bg-color: #FADADD; /* Το κρατάμε σαν αναφορά */
+    --text-color: #602463;
+    /* Κάνουμε το γυαλί λίγο πιο αδιαφανές (0.85) για να διαβάζεται το κείμενο πάνω από τη φώτο */
+    --white-glass: rgba(255, 255, 255, 0.85); 
+    --hover-color: #88338c;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* ΑΦΑΙΡΕΣΑΜΕ το solid background color και το gradient */
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* === ΝΕΟ: Στυλ για το Φόντο Zoom === */
+.bg-container {
+    position: fixed; /* Μένει σταθερό ενώ σκρολάρεις */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Πίσω από όλα */
+    overflow: hidden; /* Για να μη βγαίνει η εικόνα έξω όταν μεγαλώνει */
+}
+
+.zoom-bg {
+    position: absolute; /* Για να είναι η μία πάνω στην άλλη */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+    opacity: 0; /* Αρχικά αόρατη */
+    transition: opacity 1s ease-in-out, transform 0.1s ease-out; /* Πιο αργή μετάβαση (1s) για κινηματογραφικό εφέ */
+    will-change: transform, opacity;
+}
+
+/* Όταν μια εικόνα έχει την κλάση active, είναι ορατή */
+.zoom-bg.active {
+    opacity: 1;
+    z-index: -1; /* Την κρατάμε πίσω */
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ΑΛΛΑΓΗ ΕΔΩ: Το κάνουμε διάφανο (ήταν rgba(250, 218, 221, 0.4)) */
+    background: rgba(0, 0, 0, 0); 
+    /* Εναλλακτικά, αν θες λίγο σκοτάδι για να διαβάζονται τα λευκά γράμματα: */
+    /* background: rgba(0, 0, 0, 0.2); */
+    z-index: 1; /* Πρέπει να είναι πάνω από τις εικόνες (που έχουν z-index -1) */
+    pointer-events: none; /* Για να μην εμποδίζει το κλικ */
+}
+/* ================================= */
+
+
+/* --- Typography --- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    position: fixed; /* Το αλλάξαμε σε fixed για να μένει πάντα πάνω */
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.1); /* Ελαφρύ φόντο στο μενού */
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 90px; /* Ρύθμισε το ύψος όσο θέλεις */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #fff; /* Λευκά links */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--bg-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    /* Αφαιρέθηκε το overflow:hidden */
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1.5s ease-out;
+    /* Προσθήκη φόντου glass στο hero content για να διαβάζεται */
+    background: rgba(96, 36, 99, 0.2); /* Το μωβ με μεγάλη διαφάνεια */
+    backdrop-filter: blur(8px);
+    padding: 3rem;
+    border-radius: 20px;
+    color: #fff; /* Λευκό κείμενο στο Hero */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+.highlight {
+    color: var(--bg-color); /* Ροζ highlight */
+    font-style: italic;
+}
+
+/* Αφαιρέθηκαν τα .cherry-blossom styles */
+
+
+/* --- Button Style --- */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--text-color);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(96, 36, 99, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(96, 36, 99, 0.4);
+}
+
+/* --- Γενικές Ρυθμίσεις Section (Επαναφορά στο Κέντρο) --- */
+.section {
+    padding: 5rem 5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass {
+    /* Αφαιρούμε ΟΛΑ τα φόντα και τα περιγράμματα */
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    
+    /* Κεντράρισμα και διαστάσεις */
+    padding: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --- Τυπογραφία που ξεχωρίζει --- */
+
+/* Τίτλοι: Μεγάλοι, Λευκοί με Σκιά */
+.glass h2 {
+    font-size: 3.5rem; /* Πολύ μεγάλο μέγεθος */
+    color: #fff;
+    margin-bottom: 1.5rem;
+    /* Η σκιά είναι το μυστικό για να διαβάζεται παντού */
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+    letter-spacing: 2px;
+}
+
+.glass h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9);
+    margin-bottom: 1rem;
+}
+
+/* Κείμενο: Λευκό, έντονο */
+.glass p, .glass li {
+    font-size: 1.4rem;
+    color: #f0f0f0;
+    font-weight: 500; /* Λίγο πιο παχύ για να μη χάνεται */
+    line-height: 1.8;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* --- Features Grid (Επαναφορά σε Grid κουτάκια) --- */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.feature {
+    padding: 1rem;
+    /* Αφαιρούμε τα περιγράμματα που βάλαμε πριν */
+    background: transparent;
+    border: none; 
+    color: var(--text-color);
+}
+
+.feature:hover {
+    background: var(--text-color);
+    color: #fff;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    text-transform: none; /* Όχι απαραίτητα κεφαλαία */
+}
+
+/* --- Εικονίδια --- */
+.feature i {
+    font-size: 3.5rem;
+    color: #fff; /* Λευκά εικονίδια */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.feature:hover i {
+    transform: scale(1.2);
+    color: #FADADD; /* Γίνονται ροζ στο hover */
+}
+
+/* Προσαρμογή για τον Χάρτη */
+.map-col {
+    min-height: 500px; /* Μεγαλώνουμε το ύψος του χάρτη */
+    border-radius: 4px;
+}
+
+.feature i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* --- New Sections Styles --- */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+/* --- Events Styling --- */
+.events-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.event-card {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.date-badge {
+    background-color: var(--text-color);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+    margin-right: 2rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.date-badge .day {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.date-badge .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-details h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--hover-color);
+}
+
+/* --- Gallery Styling --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.15);
+}
+
+
+/* --- Location Section --- */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.info-col, .map-col {
+    flex: 1 1 400px;
+}
+
+.map-col {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    min-height: 400px;
+}
+
+.map-col iframe {
+    border: 10px solid #fff !important; /* Λευκό κάδρο */
+    border-radius: 10px;
+    
+}
+
+.contact-info {
+    list-style: none;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+.contact-info li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--text-color);
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } 
+    .section { padding: 3rem 5%; }
+    
+    .event-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .date-badge {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+}
+
+/* --- CHRISTMAS SNOW EFFECT --- */
+.snowflake {
+    position: fixed;
+    top: -20px;
+    color: #fff;
+    z-index: 9999; /* Να είναι πάνω από όλα */
+    pointer-events: none; /* ΠΟΛΥ ΣΗΜΑΝΤΙΚΟ: Για να μπορείς να κάνεις κλικ πίσω από το χιόνι */
+    font-size: 1em;
+    user-select: none; /* Να μην επιλέγεται κατά λάθος */
+    animation: fall linear forwards;
+    text-shadow: 0 0 5px #fff; /* Λίγη λάμψη */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg); /* Πέφτει κάτω από την οθόνη και γυρίζει */
+    }
+}

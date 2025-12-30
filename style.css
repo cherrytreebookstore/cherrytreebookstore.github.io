@@ -473,7 +473,7 @@ footer {
     .hero { 
         min-height: 100vh;
         /* Αυτό δίνει τον αέρα από πάνω για να μην πέφτει στο logo */
-        padding-top: 160px; 
+        padding-top: 240px; 
         padding-bottom: 50px;
         /* Σημαντικό: Σταματάμε το κάθετο κεντράρισμα */
         align-items: flex-start; 
@@ -531,3 +531,4 @@ footer {
     }
 
 }
+

@@ -509,26 +509,4 @@ footer {
     }
 }
 
-/* --- CHRISTMAS SNOW EFFECT --- */
-.snowflake {
-    position: fixed;
-    top: -20px;
-    color: #fff;
-    z-index: 9999; /* Να είναι πάνω από όλα */
-    pointer-events: none; /* ΠΟΛΥ ΣΗΜΑΝΤΙΚΟ: Για να μπορείς να κάνεις κλικ πίσω από το χιόνι */
-    font-size: 1em;
-    user-select: none; /* Να μην επιλέγεται κατά λάθος */
-    animation: fall linear forwards;
-    text-shadow: 0 0 5px #fff; /* Λίγη λάμψη */
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-20px) rotate(0deg);
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg); /* Πέφτει κάτω από την οθόνη και γυρίζει */
-    }
-
-}
 

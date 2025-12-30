@@ -183,39 +183,7 @@
                 activeLayer = activeLayer === 1 ? 2 : 1;
             };
         }
-
-        /* --- Κώδικας για το Χιόνι --- */
-    function createSnowflake() {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        
-        // Διαλέγουμε τυχαία αν θα είναι αστεράκι ή νιφάδα
-        snowflake.innerHTML = Math.random() > 0.5 ? '❄' : '❅';
-        
-        // Τυχαία θέση οριζόντια (από 0 έως 100 της οθόνης)
-        snowflake.style.left = Math.random() * 100 + 'vw';
-        
-        // Τυχαίο μέγεθος (από 10px έως 25px)
-        const size = Math.random() * 15 + 10; 
-        snowflake.style.fontSize = size + 'px';
-        
-        // Τυχαία ταχύτητα πτώσης (από 3 έως 8 δευτερόλεπτα)
-        const duration = Math.random() * 5 + 3;
-        snowflake.style.animationDuration = duration + 's';
-        
-        // Τυχαία διαφάνεια (για βάθος)
-        snowflake.style.opacity = Math.random() * 0.5 + 0.3;
-
-        document.body.appendChild(snowflake);
-
-        // Διαγράφουμε τη νιφάδα μόλις τελειώσει η πτώση για να μην βαρύνει το site
-        setTimeout(() => {
-            snowflake.remove();
-        }, duration * 1000);
-    }
-
-    // Δημιουργία νιφάδας κάθε 100ms (όσο πιο μικρό το νούμερο, τόσο πιο πυκνό το χιόνι)
-    setInterval(createSnowflake, 100);
     </script>
 </body>
+
 </html>

@@ -20,11 +20,15 @@ html {
 }
 
 body {
-    /* ΑΦΑΙΡΕΣΑΜΕ το solid background color και το gradient */
-    color: var(--text-color);
     font-family: var(--font-body);
-    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--text-color);
     overflow-x: hidden;
+    
+    /* ΠΡΟΣΘΕΣΕ ΑΥΤΟ: Το νέο ροζ χρώμα φόντου */
+    background-color: #FADADD; 
 }
 
 /* === ΝΕΟ: Στυλ για το Φόντο Zoom === */
@@ -508,5 +512,6 @@ footer {
         margin-bottom: 2rem;
     }
 }
+
 
 

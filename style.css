@@ -246,7 +246,7 @@ a {
 /* Κείμενο: Λευκό, έντονο */
 .glass p, .glass li {
     font-size: 1.4rem;
-    color: #FADADD;
+    color: #602463;
     font-weight: 500; /* Λίγο πιο παχύ για να μη χάνεται */
     line-height: 1.8;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
@@ -519,7 +519,7 @@ footer {
     padding: 3rem;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #FADADD; /* Λευκό κείμενο */
+    color: #602463; /* Λευκό κείμενο */
 
     /* 2. Ρυθμίσεις για να κάθεται καλά στη σελίδα */
     max-width: 1000px;  /* Το μεγάλωσα λίγο για το About */
@@ -532,7 +532,7 @@ footer {
 .glass-box h2 {
     font-size: 3.5rem;       /* Εδώ ρυθμίζεις πόσο μεγάλος θα είναι ο τίτλος */
     font-weight: 700;      /* Έντονα γράμματα */
-    color: #FADADD;        /* Ροζ χρώμα */
+    color: #602463;        /* Ροζ χρώμα */
     margin-bottom: 2rem;   /* Κενό από κάτω */
     text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Ελαφριά σκιά για να ξεχωρίζει */
 }
@@ -550,4 +550,5 @@ footer {
 .glass-box i {
     color: #FADADD;
 }
+
 

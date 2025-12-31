@@ -509,3 +509,44 @@ footer {
         margin-bottom: 2rem;
     }
 }
+
+/* --- Κοινή Κλάση "Glass Box" (Ίδιο με Hero) --- */
+.glass-box {
+    /* 1. Το στυλ που μου έστειλες */
+    background: rgba(96, 36, 99, 0.2); /* Μωβ με μεγάλη διαφάνεια */
+    backdrop-filter: blur(8px);        /* Θόλωμα */
+    -webkit-backdrop-filter: blur(8px);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FADADD; /* Λευκό κείμενο */
+
+    /* 2. Ρυθμίσεις για να κάθεται καλά στη σελίδα */
+    max-width: 1000px;  /* Το μεγάλωσα λίγο για το About */
+    width: 90%;
+    margin: 0 auto;     /* Κεντράρισμα */
+    text-align: center; /* Κεντραρισμένο κείμενο */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Λίγη σκιά για να ξεχωρίζει */
+}
+
+.glass-box h2 {
+    font-size: 3.5rem;       /* Εδώ ρυθμίζεις πόσο μεγάλος θα είναι ο τίτλος */
+    font-weight: 700;      /* Έντονα γράμματα */
+    color: #FADADD;        /* Ροζ χρώμα */
+    margin-bottom: 2rem;   /* Κενό από κάτω */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Ελαφριά σκιά για να ξεχωρίζει */
+}
+
+/* --- 2. ΡΥΘΜΙΣΗ ΓΙΑ ΤΙΣ ΚΑΤΗΓΟΡΙΕΣ (h3) --- */
+/* Αυτό διασφαλίζει ότι τα γράμματα στα εικονίδια θα μείνουν μικρά */
+.feature h3 {
+    font-size: 1.2rem;     /* Μικρό μέγεθος (σταθερό) */
+    font-weight: normal;   /* Όχι πολύ έντονα */
+    color: #fff;           /* Λευκό χρώμα */
+    margin-top: 0.5rem;
+}
+
+/* Χρώματα για τα εικονίδια */
+.glass-box i {
+    color: #FADADD;
+}

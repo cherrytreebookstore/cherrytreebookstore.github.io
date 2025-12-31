@@ -229,7 +229,7 @@ a {
 /* Τίτλοι: Μεγάλοι, Λευκοί με Σκιά */
 .glass h2 {
     font-size: 3.5rem; /* Πολύ μεγάλο μέγεθος */
-    color: #fff;
+    color: #602463;
     margin-bottom: 1.5rem;
     /* Η σκιά είναι το μυστικό για να διαβάζεται παντού */
     text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
@@ -246,7 +246,7 @@ a {
 /* Κείμενο: Λευκό, έντονο */
 .glass p, .glass li {
     font-size: 1.4rem;
-    color: #f0f0f0;
+    color: #FADADD;
     font-weight: 500; /* Λίγο πιο παχύ για να μη χάνεται */
     line-height: 1.8;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
@@ -550,3 +550,4 @@ footer {
 .glass-box i {
     color: #FADADD;
 }
+

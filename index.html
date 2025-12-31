@@ -12,7 +12,10 @@
 </head>
 <body>
 
-    
+    <div class="bg-container">
+        <img id="bg-layer-1" src="bg-home.jpg" class="zoom-bg active">
+        <img id="bg-layer-2" src="bg-home.jpg" class="zoom-bg"> <div class="bg-overlay"></div>
+    </div>
     <nav class="navbar">
     <a href="#home" class="logo">
         <img src="logo.png" alt="CherryTree Logo">
@@ -112,5 +115,78 @@
     <footer>
         <p>© 2025 CherryTree Bookstore. Created with <i class="fas fa-heart"></i> by CodingElevation.</p>
     </footer>
+
+    <script>
+        // Επιλέγουμε και τα δύο layers εικόνων
+        const bg1 = document.getElementById('bg-layer-1');
+        const bg2 = document.getElementById('bg-layer-2');
+        const sections = document.querySelectorAll('section, header');
+
+        // Ποιο layer είναι τώρα ενεργό; (Ξεκινάμε με το 1)
+        let activeLayer = 1;
+
+        // ΛΕΞΙΚΟ ΕΙΚΟΝΩΝ (Χωρίς το Events)
+        const backgrounds = {
+            'home': 'logosite.jpg',
+            'about': 'logosite.jpg',
+            'location': 'logosite.jpg'
+        };
+
+        // 1. ΛΕΙΤΟΥΡΓΙΑ ZOOM (Εφαρμόζεται και στις δύο εικόνες ταυτόχρονα)
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            let scaleValue = 1 + (scrollTop / 2500);
+            
+            bg1.style.transform = `scale(${scaleValue})`;
+            bg2.style.transform = `scale(${scaleValue})`;
+        });
+
+        // 2. ΛΕΙΤΟΥΡΓΙΑ CROSS-FADE ΑΛΛΑΓΗΣ ΕΙΚΟΝΑΣ
+        const observerOptions = {
+            root: null,
+            threshold: 0.3,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    const newImage = backgrounds[sectionId];
+
+                    // Βρες την τρέχουσα ενεργή εικόνα
+                    const currentImg = activeLayer === 1 ? bg1 : bg2;
+                    
+                    // Αν η νέα εικόνα είναι διαφορετική από αυτή που βλέπουμε τώρα
+                    if (newImage && !currentImg.src.includes(newImage)) {
+                        swapImages(newImage);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        function swapImages(newImageSrc) {
+            // Βρίσκουμε ποια εικόνα είναι ενεργή και ποια ανενεργή
+            const activeImg = activeLayer === 1 ? bg1 : bg2;
+            const nextImg = activeLayer === 1 ? bg2 : bg1;
+
+            // 1. Φορτώνουμε τη νέα εικόνα στο "πίσω" (ανενεργό) layer
+            nextImg.src = newImageSrc;
+
+            // 2. Μόλις φορτώσει η νέα εικόνα, κάνουμε την αλλαγή
+            nextImg.onload = () => {
+                // Εμφανίζουμε το νέο layer
+                nextImg.classList.add('active');
+                // Κρύβουμε το παλιό layer
+                activeImg.classList.remove('active');
+                
+                // Αλλάζουμε τον δείκτη για την επόμενη φορά
+                activeLayer = activeLayer === 1 ? 2 : 1;
+            };
+        }
+    </script>
 </body>
 </html>
